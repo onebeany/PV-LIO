@@ -4,17 +4,11 @@
     <arg name="rviz" default="true"/>
     <arg name="debug" default="false"/>
 
-    <rosparam command="load" file="$(find pv_lio)/config/ML_X.yaml"/>
-<!--    <rosparam command="load" file="$(find pv_lio)/config/robosense_outdoor.yaml"/>-->
+    <rosparam command="load" file="/home/docker_user/catkin_ws/src/PV-LIO/config/ML_X.yaml"/>
 
     <group if="$(eval arg('debug') == False)">
         <node pkg="pv_lio" type="pv_lio_node" name="pv_lio_node" output="screen"/>
     </group>
-
-    <!--- RS to Velodyne -->
-    <node pkg="pv_lio" type="rs_to_velodyne" name="rs_to_velodyne" output="screen" args="MLX XYZIRT">
-        <remap from="/rslidar_points" to="/ml_/pointcloud"/>
-    </node>
 
     <group if="$(arg rviz)">
         <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz"

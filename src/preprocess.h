@@ -38,7 +38,7 @@ namespace velodyne_ros {
   struct EIGEN_ALIGN16 Point {
       PCL_ADD_POINT4D;
       float intensity;
-      float time;
+      uint32_t offset_time;
       uint16_t ring;
       EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   };
@@ -48,7 +48,7 @@ POINT_CLOUD_REGISTER_POINT_STRUCT(velodyne_ros::Point,
     (float, y, y)
     (float, z, z)
     (float, intensity, intensity)
-    (float, time, time)
+    (uint32_t, offset_time, offset_time)
     (uint16_t, ring, ring)
 )
 

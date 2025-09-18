@@ -424,9 +424,11 @@ void publish_frame_world(const ros::Publisher & pubLaserCloudFull)
         for (int i = 0; i < size; i++)
         {
             PointType const * const p = &laserCloudFullRes->points[i];
+            /*
             if(p->intensity < 5){
                 continue;
             }
+            */
 //            if (p->x < 0 and p->x > -4
 //                    and p->y < 1.5 and p->y > -1.5
 //                            and p->z < 2 and p->z > -1) {
